@@ -1,0 +1,343 @@
+MM "38.0" FLAVOR "NO" VERSION "38.0" DATETIME "Wed Sep 20 13:58:35 2023" 
+MACHINE "WIN-NT/VC"  ; 
+startlibrary
+version1
+NumLibs = 4
+Built-In
+ACM Built-In
+ACM Models
+Hybrid Models
+NumCats = 12
+Mixers/Splitters
+active
+Separators
+active
+Exchangers
+active
+Columns
+active
+Reactors
+active
+Pressure Changers
+active
+Manipulators
+active
+Solids
+active
+Solids Separators
+active
+Controllers
+active
+Batch Models
+active
+User Models
+active
+endlibrary
+; 
+0
+? SETUP MAIN ? \ "RUN-CLASS" RUN-CLASS = FLOWSHEET \ \ SIMULATE INTERACTIVE
+ = NO MOLEFLOW = MOLEFLOW VISITED = 1 PSVUNITS = "SI" \ ? SETUP GLOBAL ? \ 
+"IN-UNITS" INSET = SI \ ? SETUP "SIM-OPTIONS" ? ; "SI_MOLE" ; \ "SIM-OPTIONS" 
+MAXIT = 1500 \ ? SETUP "MODEL-OPTION" ? ; "SI_MOLE" ; \ RADFRAC MAXOL = 200 
+DAMPING = SEVERE \ ? SETUP "UNITS-SET" METCBAR ? \ DESCRIPTION DESCRIPTION = 
+"User-defined units set" \ \ MMLOCAL \ \ UNITSET BASESET = MET ( 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 3 3 3 5 3 4 3 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 5 3 3 3 3 3 3 5 3 3 
+3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 3 3 3 3 7 3 3 3 3 3 3 3 3 3 3 ) \ ? ODATABANKS ? \ 
+ODATABANKS AUTO-PARAM = YES \ ? "DATA-SERVICE" ? ? DATABANKS ? \ DATABANKS 
+\ ? COMPONENTS MAIN ? \ COMPONENTS CID = "METHA-01" ANAME = CH4 OUTNAME = 
+"METHA-01" DBNAME1 = "METHANE" ANAME1 = "CH4" /  CID = "ETHAN-01" ANAME = 
+C2H6 OUTNAME = "ETHAN-01" DBNAME1 = "ETHANE" ANAME1 = "C2H6" /  CID = 
+"ETHYL-01" ANAME = C2H4 OUTNAME = "ETHYL-01" DBNAME1 = "ETHYLENE" ANAME1 = 
+"C2H4" /  CID = "PROPA-01" ANAME = C3H8 OUTNAME = "PROPA-01" DBNAME1 = 
+"PROPANE" ANAME1 = "C3H8" /  CID = "PROPY-01" ANAME = C3H6-2 OUTNAME = 
+"PROPY-01" DBNAME1 = "PROPYLENE" ANAME1 = "C3H6-2" /  CID = "N-BUT-01" ANAME
+ = C4H10-1 OUTNAME = "N-BUT-01" DBNAME1 = "N-BUTANE" ANAME1 = "C4H10-1" /  
+CID = "N-PEN-01" ANAME = C5H12-1 OUTNAME = "N-PEN-01" DBNAME1 = "N-PENTANE" 
+ANAME1 = "C5H12-1" /  CID = "BENZE-01" ANAME = C6H6 OUTNAME = "BENZE-01" 
+DBNAME1 = "BENZENE" ANAME1 = "C6H6" \ ? COMPONENTS "ADA/PCS" "LE-PROP-DATA" ? 
+; "SI_MOLE" ; ? COMPONENTS "ADA/PCS" "ADA-SETUP" ? \ "ADA-SETUP" PROCEDURE = 
+REL9 \ ? COMPONENTS "COMP-LIST" GLOBAL ? ? COMPONENTS "UNIFAC-GROUP" ? ? 
+SOLVE ? \ "RUN-MODE" MODE = SIM \ ? "DYN-OPTIONS" ? ? FLOWSHEET GLOBAL ? ? 
+PROPERTIES MAIN ? \ GPROPERTIES GBASEOPSET = "PENG-ROB" GOPSETNAME = "PENG-ROB" 
+PARCON = -2 \ ? PROPERTIES "OPTION-SETS" "PENG-ROB" ? \ PARAM BASE = "PENG-ROB" 
+\ ? PROPERTIES "NC-PROPS" ? ? PROPERTIES "USER-PROPS" ? \ ALLOWSYSTEM 
+SYSALLOWED = NO \ ? PROPERTIES "MOLEC-STRUCT" "BENZE-01" ? ? PROPERTIES 
+"MOLEC-STRUCT" "ETHAN-01" ? ? PROPERTIES "MOLEC-STRUCT" "ETHYL-01" ? ? 
+PROPERTIES "MOLEC-STRUCT" "METHA-01" ? ? PROPERTIES "MOLEC-STRUCT" "N-BUT-01" 
+? ? PROPERTIES "MOLEC-STRUCT" "N-PEN-01" ? ? PROPERTIES "MOLEC-STRUCT" 
+"PROPA-01" ? ? PROPERTIES "MOLEC-STRUCT" "PROPY-01" ? ? PROPERTIES PARAMETERS 
+SUMMARY ? ? PROPERTIES PARAMETERS BINARY SCALAR "MLQKIJ-1" ? ; "ENG_MOLE" ; 
+\ PROP-LIST PARAMNAME = MLQKIJ SETNO = 1 UNITROW = 0 \ ? PROPERTIES 
+PARAMETERS BINARY SCALAR "RKTKIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST PARAMNAME = 
+RKTKIJ SETNO = 1 UNITROW = 0 \ ? PROPERTIES PARAMETERS BINARY "T-DEPENDENT" 
+"ANDKIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST PARAMNAME = ANDKIJ SETNO = 1 UNITROW
+ = 0 TUNITROW = 22 TUNITLABEL = F NEL = 2 \ ? PROPERTIES PARAMETERS BINARY 
+"T-DEPENDENT" "ANDMIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST PARAMNAME = ANDMIJ 
+SETNO = 1 UNITROW = 0 TUNITROW = 22 TUNITLABEL = F NEL = 2 \ ? PROPERTIES 
+PARAMETERS BINARY "T-DEPENDENT" "MUKIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST 
+PARAMNAME = MUKIJ SETNO = 1 UNITROW = 0 TUNITROW = 22 TUNITLABEL = F NEL = 6 
+\ ? PROPERTIES PARAMETERS BINARY "T-DEPENDENT" "MULIJ-1" ? ; "ENG_MOLE" ; \ 
+PROP-LIST PARAMNAME = MULIJ SETNO = 1 UNITROW = 0 TUNITROW = 22 TUNITLABEL = 
+F NEL = 11 \ ? PROPERTIES PARAMETERS BINARY "T-DEPENDENT" "PRKBV-1" ? ; 
+"METCBAR_MOLE" ; \ PROP-LIST PARAMNAME = PRKBV SETNO = 1 UNITROW = 0 TUNITROW
+ = 22 TUNITLABEL = C BDBANK = ( "APV120 EOS-LIT" ) NEL = 5 \ \ BPVAL 
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "ETHAN-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "ETHYL-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHAN-01" CID2 = "ETHYL-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "PROPA-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHAN-01" CID2 = "PROPA-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "PROPY-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHAN-01" CID2 = "PROPY-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "PROPA-01" CID2 = "PROPY-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "N-BUT-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHAN-01" CID2 = "N-BUT-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHYL-01" CID2 = "N-BUT-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "PROPA-01" CID2 = "N-BUT-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "N-PEN-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHAN-01" CID2 = "N-PEN-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "PROPA-01" CID2 = "N-PEN-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "N-BUT-01" CID2 = "N-PEN-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "METHA-01" CID2 = "BENZE-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHAN-01" CID2 = "BENZE-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "ETHYL-01" CID2 = "BENZE-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "PROPA-01" CID2 = "BENZE-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" /  
+PARAMNAME2 = PRKBV CID1 = "N-PEN-01" CID2 = "BENZE-01" UNITROW2 = 0 TUNITROW2
+ = 22 TUNITLABEL2 = C VAL1 = "APV120 EOS-LIT" VAL2 = "APV120 EOS-LIT" VAL3 = 
+"APV120 EOS-LIT" VAL4 = "APV120 EOS-LIT" VAL5 = "APV120 EOS-LIT" \ ? 
+PROPERTIES PARAMETERS BINARY "T-DEPENDENT" "PRLIJ-1" ? ; "METCBAR_MOLE" ; \ 
+PROP-LIST PARAMNAME = PRLIJ SETNO = 1 UNITROW = 0 TUNITROW = 22 TUNITLABEL = 
+C NEL = 8 \ ? PROPERTIES "ATTR-COMPS" ? ? POLYMERS ? ? "STREAM-CLASS" 
+SUBSTREAMS ? \ DEF-SUBS-CLA SUBSTREAMS = MIXED \ \ DEF-SUBS-CLA SUBSTREAMS = 
+CISOLID \ \ DEF-SUBS-CLA SUBSTREAMS = NC \ \ DEF-SUBS-CLA SUBSTREAMS = NCPSD 
+\ \ DEF-SUBS-CLA SUBSTREAMS = CIPSD \ ? "STREAM-NAMES" ? ? "STREAM-GROUP" All 
+? \ DESCRIPTION DESCRIPTION = "All streams" \ ? "STREAM-GROUP" Boundary ? \ 
+DESCRIPTION DESCRIPTION = "Boundary streams" \ ? "STREAM-GROUP" Charge ? \ 
+DESCRIPTION DESCRIPTION = "Charge streams" \ ? "STREAM-GROUP" Feeds ? \ 
+DESCRIPTION DESCRIPTION = "Feed streams" \ ? "STREAM-GROUP" Initial ? \ 
+DESCRIPTION DESCRIPTION = "Streams with user-specified values entered" \ ? 
+"STREAM-GROUP" Products ? \ DESCRIPTION DESCRIPTION = "Product streams" \ ? 
+"STREAM-GROUP" Tears ? \ DESCRIPTION DESCRIPTION = 
+"Tear streams manipulated by the convergence algorithms" \ ? "EO-VARS" ? ? 
+"STREAM-PRICE" ? ; "SI_MOLE" ; ? "EO-CONV-OPTI" ? \ DMO-PARAMS MODE = DEFAULT 
+\ \ DMO-PARAMS MODE = SIMULATION \ \ DMO-PARAMS MODE = "PARAMETER-ESTIMATION" 
+\ \ DMO-PARAMS MODE = RECONCILIATION \ \ DMO-PARAMS MODE = OPTIMIZATION \ \ 
+LSSQP-PARAMS MODE-L = DEFAULT \ \ LSSQP-PARAMS MODE-L = SIMULATION \ \ 
+LSSQP-PARAMS MODE-L = "PARAMETER-ESTIMATION" \ \ LSSQP-PARAMS MODE-L = 
+RECONCILIATION \ \ LSSQP-PARAMS MODE-L = OPTIMIZATION \ \ NSOLVE-PARAM 
+NSOLVE-MODE = DEFAULT \ \ NSOLVE-PARAM NSOLVE-MODE = SIMULATION \ \ 
+NSOLVE-PARAM NSOLVE-MODE = "PARAMETER-ESTIMATION" \ \ XSLP-PARAMS XSLP-MODE
+ = DEFAULT \ \ XSLP-PARAMS XSLP-MODE = SIMULATION \ \ XSLP-PARAMS XSLP-MODE
+ = "PARAMETER-ESTIMATION" \ \ XSLP-PARAMS XSLP-MODE = RECONCILIATION \ \ 
+XSLP-PARAMS XSLP-MODE = OPTIMIZATION \ ? REPORT REPORT ? ? REPORT 
+"STREAM-REPOR" ? \ OPTIONS MOLEFLOW = MOLEFLOW \ ? "STREAM-LIB" ? ; "SI_MOLE" 
+; 
+
+ GRAPHICS_BACKUP
+PFS V 5.00
+$CONFIG
+paramdata APV120 ENRTL-RK
+paramdata APV120 VLE-IG
+paramdata APV120 VLE-RK
+paramdata APV120 VLE-HOC
+paramdata APV120 LLE-LIT
+paramdata APV120 LLE-ASPEN
+paramdata APV120 VLE-LIT
+paramdata APV120 BINARY
+paramdata APV120 PITZER
+paramdata APV120 EOS-LIT
+paramdata APV120 HENRY-AP
+paramdata APV120 SRK-ASPEN
+paramdata APV120 PC-SAFT
+paramdata APV120 POLYPCSF
+paramdata APV120 HYSYS
+paramdata APESV120 AP-EOS
+paramdata NISTV120 NIST-HOC
+paramdata NISTV120 NIST-IG
+paramdata NISTV120 NIST-RK
+paramdata NISTV120 NIST-EOS
+purebank APV120 PURE38
+purebank APV120 AQUEOUS
+purebank APV120 SOLIDS
+purebank APV120 INORGANIC
+purebank APESV120 AP-EOS
+purebank NISTV120 NIST-TRC
+regdbank 0
+ftn_check 1
+autoblockid 1
+autostreamid 1
+showblockid 1
+showstreamid 1
+autoplacement 1
+grid 2
+gridresolution 0.100000
+scale 0
+blockprefix B
+labelscale 1.000000
+3DOn 1
+qwformat %.0f
+tempformat %.0f
+presformat %.0f
+flowformat %.0f
+strmqwformat %.0f
+vflowformat %.0f
+mflowformat %.0f
+vfracformat %.2f
+pseudobatch 0
+partial 1
+animation 1
+runanyway 0
+globalqw 0
+globaltemp 0
+globalpres 0
+globalflow 0
+globalstrmqw 0
+globalvflow 0
+globalmflow 0
+globalvfrac 0
+globalshowcalcerror 1
+globalshowcalcwarning 1
+globalshowdisabled 1
+tooldrawvisible 0
+browserheight 7530
+browserwidth 10725
+browsertreewidth 2450
+polyplusenabled 1
+dynaplusenabled 1
+bfracenabled 1
+rtfenabled 1
+rspenabled 1
+initializeicarus 0
+pinchenabled 0
+linklimit 5000
+material_color 0
+material_style 0
+material_width 1
+heat_color 0
+heat_style 1
+heat_width 1
+heat_termid Q
+work_color 0
+work_style 2
+work_width 1
+work_termid W
+connections_color 9
+connections_style 3
+connections_width 1
+measurements_color 4
+measurements_style 4
+measurements_width 1
+displayeoconn 0
+displaycalcs 0
+displaytransfers 0
+displaymeas 0
+displaydesignspecs 0
+displaycalccons 0
+displaymeascons 0
+displayothercons 0
+displayeomeas 1
+displayeomeastype 2
+displayothermanipconn 0
+showeoviews 0
+eoautosave 1
+allow_system_userprops 0
+copy_estimation 1
+copy_retrieved 1
+purge_incomp_params 0
+set_default_biparams 0
+set_default_dataset1 0
+set_default_dataset0 1
+bestinput 0
+autosmrun 0
+genallpropset 0
+strmresformdefault 0
+roottype 0
+exchangerfile 1
+streamformat 1
+runsettingfile 1
+usermodelfile 1
+fortranfile 0
+timeout 1000
+auto_evaluate 0
+customglobaldatapropset1 0 | Custom1 | * | %.2f | 0 | 6
+customglobaldatapropset2 0 | Custom2 | * | %.2f | 1 | 7
+customglobaldatapropset3 0 | Custom3 | * | %.2f | 2 | 8
+customglobaldatapropset4 0 | Custom4 | * | %.2f | 4 | 9
+customglobaldatapropset5 0 | Custom5 | * | %.2f | 5 | 10
+customglobaldatapropset6 0 | Custom6 | * | %.2f | 6 | 11
+economics_active 0
+ignoreEOVarNameFixupsOnImport 1
+tpsaupgrade 0
+#
+$_APWNSHELL_SETTINGS
+<FileRootSettings><CaseFileSettings>&lt;CaseFileSettings StreamSummaryFormSettings="&amp;lt;src&amp;gt;&amp;lt;ReferencedPaths&amp;gt;&amp;lt;Path&amp;gt;Top.appModelV8.Results Summary&amp;lt;/Path&amp;gt;&amp;lt;/ReferencedPaths&amp;gt;&amp;lt;ReferencedTemplates /&amp;gt;&amp;lt;/src&amp;gt;" xmlns="clr-namespace:AspenTech.AspenPlus.Infrastructure;assembly=AspenTech.AspenPlus.Infrastructure" /&gt;</CaseFileSettings><CommonShellSettings>&lt;CommonShellSettings xmlns="http://schemas.aspentech.com/xaml/presentation/visualisation/commonshell" xmlns:atapi="clr-namespace:AspenTech.AspenPlus.Infrastructure;assembly=AspenTech.AspenPlus.Infrastructure" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:atapmaa="clr-namespace:AspenTech.AspenPlus.Modules.ApwnApplication;assembly=ApwnShell" xmlns:atapie="clr-namespace:AspenTech.AspenPlus.Infrastructure.Events;assembly=AspenTech.AspenPlus.Infrastructure" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:apmab="clr-namespace:AspenPlus.Modules.ApwnBrowser;assembly=ApwnShell" xmlns:cxv="http://schemas.aspentech.com/xaml/presentation/cxsviewmodel"&gt;&lt;CommonShellSettings.CurrentWorkspace&gt;&lt;ShellWorkspace ActivationBarState="&amp;lt;DashboardPanel IsExpanded=&amp;quot;false&amp;quot; IsTurnedOff=&amp;quot;true&amp;quot; Version=&amp;quot;38&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;Item Type=&amp;quot;AspenTech.ActivationDashboard.EconomicAnalysis.DashboardItem&amp;quot;&amp;gt;&amp;amp;lt;!--This is the current state of Economics Analysis Dashboard--&amp;amp;gt;&amp;#xD;&amp;#xA;&amp;amp;lt;Root&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;OnOffState Value=&amp;quot;Off&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;CapitalCost Value=&amp;quot;&amp;quot; Units=&amp;quot;USD&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;UtilityCost Value=&amp;quot;&amp;quot; Units=&amp;quot;USD/Year&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;HasError&amp;amp;gt;false&amp;amp;lt;/HasError&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;_statusCode Value=&amp;quot;-1&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;Flags&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_isRunCompleted Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_isRunning Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_incompleteButActivated Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_incompleteButLoaded Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_incompleteButSized Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_incompleteButMapped Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_completeEvaluatedNotAutoRun Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_isSimulationChanged Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_isInStopping Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_isOnOffButtonCanBeUsed Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;    &amp;amp;lt;_isResetDashboardButLeaveItOn Value=&amp;quot;false&amp;quot; /&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;/Flags&amp;amp;gt;&amp;#xD;&amp;#xA;&amp;amp;lt;/Root&amp;amp;gt;&amp;lt;/Item&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;Item Type=&amp;quot;AspenTech.ActivationDashboard.EnergyAnalysis.DashboardItem&amp;quot;&amp;gt;&amp;amp;lt;!--This is the current state of Energy Analysis Dashboard--&amp;amp;gt;&amp;#xD;&amp;#xA;&amp;amp;lt;Root&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;IsExpanded&amp;amp;gt;false&amp;amp;lt;/IsExpanded&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;OnOff&amp;amp;gt;Off&amp;amp;lt;/OnOff&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;Status&amp;amp;gt;InputIncomplete&amp;amp;lt;/Status&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;PUS&amp;amp;gt;&amp;amp;lt;/PUS&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;Percent&amp;amp;gt;&amp;amp;lt;/Percent&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;Units&amp;amp;gt;MW&amp;amp;lt;/Units&amp;amp;gt;&amp;#xD;&amp;#xA;&amp;amp;lt;/Root&amp;amp;gt;&amp;lt;/Item&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;Item Type=&amp;quot;AspenTech.ActivationDashboard.EdrActivation.DashboardItem&amp;quot;&amp;gt;&amp;amp;lt;EDR&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;IsShowModelStatus&amp;amp;gt;false&amp;amp;lt;/IsShowModelStatus&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;IsShowRiskStatus&amp;amp;gt;false&amp;amp;lt;/IsShowRiskStatus&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;IsShowLegend&amp;amp;gt;false&amp;amp;lt;/IsShowLegend&amp;amp;gt;&amp;#xD;&amp;#xA;  &amp;amp;lt;DetailCount&amp;amp;gt;0&amp;amp;lt;/DetailCount&amp;amp;gt;&amp;#xD;&amp;#xA;&amp;amp;lt;/EDR&amp;amp;gt;&amp;lt;/Item&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/DashboardPanel&amp;gt;" Layout="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;xamDockManager version=&amp;quot;19.2.20192.90&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;contentPanes&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;contentPane name=&amp;quot;FlowsheetScreenFactory&amp;quot; location=&amp;quot;Document&amp;quot; lastActivatedTime=&amp;quot;2023-09-20T11:58:33.5369605Z&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;contentPane name=&amp;quot;ModelLibraryScreenFactoryKey&amp;quot; location=&amp;quot;DockedBottom&amp;quot; lastActivatedTime=&amp;quot;2023-06-02T11:10:44.3098166Z&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/contentPanes&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;panes&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;splitPane name=&amp;quot;Zae87adee5563419cbb784f21663c964f&amp;quot; splitterOrientation=&amp;quot;Vertical&amp;quot; location=&amp;quot;DockedBottom&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;contentPane name=&amp;quot;ModelLibraryScreenFactoryKey&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/splitPane&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/panes&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;documents splitterOrientation=&amp;quot;Vertical&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;splitPane name=&amp;quot;Z96e17bc13cca4c408ecb3c478d876a15&amp;quot; splitterOrientation=&amp;quot;Vertical&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;tabGroup name=&amp;quot;Z6a7fd8b505dd49978f1d05e53b32debe&amp;quot; selectedIndex=&amp;quot;0&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;contentPane name=&amp;quot;FlowsheetScreenFactory&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/tabGroup&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/splitPane&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/documents&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/xamDockManager&amp;gt;" NavigationGroupToSelect="Simulation" IsNavigationPaneMinimized="False" IsRibbonMinimized="False"&gt;&lt;ShellWorkspace.Screens&gt;&lt;WorkspaceScreenData PaneName="FlowsheetScreenFactory" ScreenFactoryKey="FlowsheetScreenFactory"&gt;&lt;WorkspaceScreenData.ScreenSubject&gt;&lt;atapi:StringScreenSubject subject="{assembly:Null}" fatherNodePath="{assembly:Null}" NavigationGroupKey="Simulation" /&gt;&lt;/WorkspaceScreenData.ScreenSubject&gt;&lt;WorkspaceScreenData.ScreenState&gt;&lt;ScreenState Zoom="2.790001" /&gt;&lt;/WorkspaceScreenData.ScreenState&gt;&lt;/WorkspaceScreenData&gt;&lt;WorkspaceScreenData PaneName="ModelLibraryScreenFactoryKey" ScreenFactoryKey="ModelLibraryScreenFactoryKey"&gt;&lt;WorkspaceScreenData.ScreenState&gt;&lt;ScreenState /&gt;&lt;/WorkspaceScreenData.ScreenState&gt;&lt;/WorkspaceScreenData&gt;&lt;/ShellWorkspace.Screens&gt;&lt;/ShellWorkspace&gt;&lt;/CommonShellSettings.CurrentWorkspace&gt;&lt;CommonShellSettings.SavedWorkspaces&gt;&lt;ShellWorkspaceFolder /&gt;&lt;/CommonShellSettings.SavedWorkspaces&gt;&lt;CommonShellSettings.NavigatorGroupWorkspaces&gt;&lt;ShellWorkspace Name="Properties" Layout="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;xamDockManager version=&amp;quot;19.2.20192.90&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;contentPanes&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;contentPane name=&amp;quot;_AnonymousScreen1&amp;quot; location=&amp;quot;Document&amp;quot; lastActivatedTime=&amp;quot;2023-09-20T11:58:22.3766956Z&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/contentPanes&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;documents splitterOrientation=&amp;quot;Vertical&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;splitPane name=&amp;quot;Z0172519e2df441b7b50ef61e8641e6a2&amp;quot; splitterOrientation=&amp;quot;Vertical&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;tabGroup name=&amp;quot;Z2e0a57e0c84544c2b69871c96948e7e6&amp;quot; selectedIndex=&amp;quot;0&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;contentPane name=&amp;quot;_AnonymousScreen1&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/tabGroup&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/splitPane&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/documents&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/xamDockManager&amp;gt;" NavigationGroupToSelect="Properties" IsNavigationPaneMinimized="False" IsRibbonMinimized="False"&gt;&lt;ShellWorkspace.Screens&gt;&lt;WorkspaceScreenData PaneName="_AnonymousScreen1" ScreenFactoryKey="ApwnFormContentFactory"&gt;&lt;WorkspaceScreenData.ScreenSubject&gt;&lt;atapmaa:ApwnFormScreenSubject Key="Components" NavigationGroupKey="Properties"&gt;&lt;atapmaa:ApwnFormScreenSubject.ShowFormArgs&gt;&lt;atapie:ShowFormEventArgs FormProgId="MMCOMP_SPEC.MMCOMP_SPEC_INPUT" FormKey="Components" Header="Components" ResultsOnly="False" PathKey="Top.appModelV8.Components"&gt;&lt;atapie:ShowFormEventArgs.Parameters&gt;&lt;s:String assembly:Key="id"&gt;Specifications&lt;/s:String&gt;&lt;s:String assembly:Key="main"&gt;Top.appModelV8.Components.Specifications&lt;/s:String&gt;&lt;/atapie:ShowFormEventArgs.Parameters&gt;&lt;/atapie:ShowFormEventArgs&gt;&lt;/atapmaa:ApwnFormScreenSubject.ShowFormArgs&gt;&lt;atapmaa:ApwnFormScreenSubject.PlotwizardRule&gt;&lt;apmab:ApwnPlotwizardRule ContextPath="Top.appModelV8.Components" /&gt;&lt;/atapmaa:ApwnFormScreenSubject.PlotwizardRule&gt;&lt;/atapmaa:ApwnFormScreenSubject&gt;&lt;/WorkspaceScreenData.ScreenSubject&gt;&lt;WorkspaceScreenData.ScreenState&gt;&lt;atapmaa:ApwnFormScreenState&gt;&lt;atapmaa:ApwnFormScreenState.Parameters&gt;&lt;cxv:CxvParameter Name="main" Value="Top.appModelV8.Components.Specifications" /&gt;&lt;cxv:CxvParameter Name="id" Value="Specifications" /&gt;&lt;cxv:CxvParameter Name="extraComments_path" Value="Comments" /&gt;&lt;cxv:CxvParameter Name="extraDescription_path" Value="Input.DESCRIPTION" /&gt;&lt;cxv:CxvParameter Name="extraUnits_path" Value="Input.Unit Set" /&gt;&lt;cxv:CxvParameter Name="NotNeedName" Value="NotNull" /&gt;&lt;cxv:CxvParameter Name="NotNeedType" Value="NotNull" /&gt;&lt;cxv:CxvParameter Name="selected_tab" Value="tab0" /&gt;&lt;/atapmaa:ApwnFormScreenState.Parameters&gt;&lt;/atapmaa:ApwnFormScreenState&gt;&lt;/WorkspaceScreenData.ScreenState&gt;&lt;/WorkspaceScreenData&gt;&lt;/ShellWorkspace.Screens&gt;&lt;/ShellWorkspace&gt;&lt;/CommonShellSettings.NavigatorGroupWorkspaces&gt;&lt;/CommonShellSettings&gt;</CommonShellSettings></FileRootSettings>
+$_END_APWNSHELL_SETTINGS
+#
+PFSVData
+# of PFS Objects = 1
+SIZE -3 3 -3 3
+LEGEND
+Version: 2
+Unfixed
+# of PFS Objects = 0
+VIEWPORT -3.302112 3.501464 3.736852 -3.073228
+LAYOUT
+TableFormat 1
+Pages 1 1 1 1
+PAGESETUP
+PAPERSIZE 
+PAPERSOURCE 
+ORIENTATION -1
+PRINTPAGENO 1 1
+LEFTMARGIN 10mm
+RIGHTMARGIN 10mm
+TOPMARGIN 10mm
+BOTTOMMARGIN 10mm
+VISIBILITY 0.030000
+PFDFLAG 255 255
+PFDMODE 0
+SCALE 0.006504
+$_ADS_FILE
+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
+$_END_ADS_FILE

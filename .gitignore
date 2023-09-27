@@ -1,0 +1,10 @@
+/.venv*
+test.py
+Simulation_Files/sim_data/*
+!/Simulation_Files/sim_data/Base_case.bkp
+Simulation_Files/disc_data/*
+!/Simulation_Files/disc_data/disc_sampling_log.txt
+/__pycache__
+/Simulation_Files/test_data/*
+Simulation_Files/train_files/*
+!/Simulation_Files/train_files/norm_vars.pickle
